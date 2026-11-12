@@ -830,6 +830,61 @@
         "limitations"
       ],
       "additionalProperties": false
+    },
+    "citationIntegritySweep": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "references_checked": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/editorialStatus"
+          }
+        },
+        "sources_checked": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unresolved": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "disagreements": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "result": {
+          "enum": [
+            "clean",
+            "flags-found",
+            "review-required",
+            "incomplete"
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "id",
+        "references_checked",
+        "records",
+        "sources_checked",
+        "unresolved",
+        "disagreements",
+        "result"
+      ],
+      "additionalProperties": false
     }
   },
   "additionalProperties": false
