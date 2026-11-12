@@ -28,3 +28,10 @@ Standards: OKF 0.2 is Markdown + YAML frontmatter; JSON-LD 1.1 is a W3C linked-d
 The v1 contracts cover source/rights, ingestion manifests/chunks, citation anchors/proofs/receipts, coverage, editorial status, knowledge assets, OKF/JSON-LD exports, evidence bundles, corrections and answer receipts.
 
 Proof profile: leaf = SHA-256(0x00 || canonical payload); internal = SHA-256(0x01 || left || right). Proof includes tree size, leaf index, path and root. Membership does not prove source authenticity, quotation correctness, truth, completeness, publisher authority or retraction-free status.
+
+
+## Portable signature envelope metadata — 2026-11-12
+
+The shared v1 schema now permits an optional signature envelope on ingestion manifests, citation-proof receipts, OKF/JSON-LD export manifests, content-addressed evidence bundles, correction events and answer-evidence receipts. The envelope carries algorithm, key fingerprint, optional public-key reference, signed-payload digest, signature bytes, timestamp and verifier status. It contains no private key material.
+
+This is a transport contract only. Current CI does not create signatures, resolve public keys, evaluate revocation, or verify Ed25519/ML-DSA signatures. A `verification_status` of `not-run` or `unknown-key` is not an attestation of authenticity. The receiver must verify the signature over the declared canonical payload digest with an independently trusted key and policy.
