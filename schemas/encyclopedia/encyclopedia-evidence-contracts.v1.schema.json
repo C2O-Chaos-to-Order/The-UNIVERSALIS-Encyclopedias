@@ -245,6 +245,9 @@
             ],
             "additionalProperties": false
           }
+        },
+        "signature": {
+          "$ref": "#/$defs/signatureEnvelope"
         }
       },
       "required": [
@@ -356,6 +359,9 @@
           "items": {
             "type": "string"
           }
+        },
+        "signature": {
+          "$ref": "#/$defs/signatureEnvelope"
         }
       },
       "required": [
@@ -603,6 +609,9 @@
             ],
             "additionalProperties": false
           }
+        },
+        "signature": {
+          "$ref": "#/$defs/signatureEnvelope"
         }
       },
       "required": [
@@ -658,6 +667,9 @@
             "invalid",
             "incomplete"
           ]
+        },
+        "signature": {
+          "$ref": "#/$defs/signatureEnvelope"
         }
       },
       "required": [
@@ -741,6 +753,9 @@
         "provenance_ref": {
           "type": "string",
           "minLength": 1
+        },
+        "signature": {
+          "$ref": "#/$defs/signatureEnvelope"
         }
       },
       "required": [
@@ -814,6 +829,9 @@
           "items": {
             "type": "string"
           }
+        },
+        "signature": {
+          "$ref": "#/$defs/signatureEnvelope"
         }
       },
       "required": [
@@ -883,6 +901,56 @@
         "unresolved",
         "disagreements",
         "result"
+      ],
+      "additionalProperties": false
+    },
+    "signatureEnvelope": {
+      "type": "object",
+      "properties": {
+        "algorithm": {
+          "enum": [
+            "Ed25519",
+            "ML-DSA-65",
+            "other"
+          ]
+        },
+        "key_fingerprint": {
+          "$ref": "#/$defs/digest"
+        },
+        "public_key_ref": {
+          "type": "string"
+        },
+        "signed_payload_digest": {
+          "$ref": "#/$defs/digest"
+        },
+        "signature_base64": {
+          "type": "string",
+          "minLength": 1
+        },
+        "signed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "verification_status": {
+          "enum": [
+            "not-run",
+            "valid",
+            "invalid",
+            "unknown-key",
+            "revoked-key"
+          ]
+        },
+        "verifier_ref": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "algorithm",
+        "key_fingerprint",
+        "signed_payload_digest",
+        "signature_base64",
+        "signed_at",
+        "verification_status"
       ],
       "additionalProperties": false
     }
