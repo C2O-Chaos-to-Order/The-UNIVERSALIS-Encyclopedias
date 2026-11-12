@@ -34,3 +34,13 @@ Eight negative cases reject: tampered Merkle root; out-of-range leaf index; inco
 ## Limits
 
 CI validates JSON Schema records, cross-field semantics and the synthetic Merkle proof. It does not deploy a production wiki compiler, document ingest runtime, source-rights service, live Crossref/OpenAlex connector, signature/key service, graph store, cryptographic signature verification, external anchoring or automated correction propagation. Merkle membership is not source authenticity, quotation correctness, claim truth, retrieval completeness, publisher authority, freshness or proof of no retraction. Public fixtures contain synthetic references only; no C2O-private corpus, policy, key, authority or audit data is included. No third-party candidate is marked installed or integrated.
+
+
+## Optional portable signature envelope
+
+The shared schema now permits optional signature-envelope metadata on ingestion manifests, citation-proof receipts, OKF/JSON-LD export manifests, evidence bundles, correction events and answer receipts. The envelope records algorithm, key fingerprint, optional public-key reference, signed-payload digest, signature bytes, timestamp and verifier status. It carries no private key material. CI does not create or verify a signature; metadata alone is not authentication.
+
+## Final CI after signature-envelope schema extension
+- Encyclopedia Evidence Contract Validation: [passed — run 43264360375](https://github.com/C2O-Chaos-to-Order/The-UNIVERSALIS-Encyclopedias/actions/runs/43264360375).
+- Repository quality baseline: [passed — run 43264360278](https://github.com/C2O-Chaos-to-Order/The-UNIVERSALIS-Encyclopedias/actions/runs/43264360278).
+- All jobs and steps passed. Public workflow contains no C2O-private schema or data.
