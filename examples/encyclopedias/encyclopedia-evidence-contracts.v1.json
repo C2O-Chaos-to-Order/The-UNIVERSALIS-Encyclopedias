@@ -1,0 +1,215 @@
+{
+  "source_record": {
+    "id": "source-b",
+    "uri": "fixture://source-b",
+    "title": "Synthetic source B",
+    "kind": "article",
+    "media_type": "application/pdf",
+    "retrieved_at": "2026-11-12T16:29:00Z",
+    "digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "hash_algorithm": "SHA3-256",
+    "rights_status": "verified",
+    "privacy_classification": "public",
+    "authenticity": "corroborated",
+    "status": "active"
+  },
+  "ingestion_manifest": {
+    "schema_version": "1.0.0",
+    "id": "ingest-1",
+    "version": "1.0.0",
+    "created_at": "2026-11-12T16:30:00Z",
+    "producer_ref": "fixture://producer",
+    "pipeline_ref": "fixture://pipeline",
+    "status": "validated",
+    "digest": "1111111111111111111111111111111111111111111111111111111111111111",
+    "hash_algorithm": "SHA-256",
+    "documents": [
+      {
+        "source_id": "source-a",
+        "uri": "fixture://source-a",
+        "byte_length": 1200,
+        "digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "hash_algorithm": "SHA-256",
+        "rights_status": "verified",
+        "privacy_classification": "public",
+        "chunks": [
+          {
+            "id": "chunk-a",
+            "sequence": 0,
+            "start": 0,
+            "end": 500,
+            "digest": "2222222222222222222222222222222222222222222222222222222222222222"
+          }
+        ]
+      },
+      {
+        "source_id": "source-b",
+        "uri": "fixture://source-b",
+        "byte_length": 24000,
+        "digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "hash_algorithm": "SHA3-256",
+        "rights_status": "verified",
+        "privacy_classification": "public",
+        "chunks": [
+          {
+            "id": "chunk-b",
+            "sequence": 0,
+            "start": 0,
+            "end": 1000,
+            "digest": "3333333333333333333333333333333333333333333333333333333333333333"
+          }
+        ]
+      }
+    ]
+  },
+  "citation_proof": {
+    "schema_version": "1.0.0",
+    "id": "proof-1",
+    "source_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "fragment_digest": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "locator": "fixture://source-b#page-3",
+    "proof": {
+      "version": "1.0.0",
+      "algorithm": "RFC9162-SHA256",
+      "canonicalization": "RFC8785",
+      "payload": {
+        "citation_id": "citation-b",
+        "source_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "fragment_digest": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "locator": "fixture://source-b#page-3"
+      },
+      "payload_digest": "57e9e562dd1739ac3f07a52c016cf2adbdaaf619da9cef05ebfbef5b697f887b",
+      "leaf_hash": "71940c1914762a09e66263ef86a5bd821fbd103fc2c96be356e1e954225a48c7",
+      "root_hash": "64dd3e84ada4e941690e2b04bc26571bade0e25f4479a2656bf822d001386022",
+      "tree_size": 3,
+      "leaf_index": 1,
+      "path": [
+        "ddddc028a03bb0cd284f5fdc04f3667abf0a83a1fbc3ac8d39f8c8ae1e29c9a4",
+        "f317831d31d3891245c002d11dc080e4b45554c5f4c8fda0087f4d6a161448b9"
+      ],
+      "timestamp": "2026-11-12T16:30:00Z"
+    },
+    "truth_status": "not-established-by-inclusion-proof",
+    "limitations": [
+      "Merkle membership does not prove source authenticity, quote correctness, claim truth, completeness or authority."
+    ]
+  },
+  "coverage_report": {
+    "schema_version": "1.0.0",
+    "total": 3,
+    "verified": 2,
+    "uncited": 1,
+    "unverified": 0,
+    "broken": 0,
+    "coverage": 0.6666666666666666,
+    "threshold": 0.95,
+    "result": "fail"
+  },
+  "knowledge_asset": {
+    "schema_version": "1.0.0",
+    "id": "asset-1",
+    "title": "Synthetic encyclopedia entry",
+    "body_markdown": "Synthetic fixture.",
+    "claim_refs": [
+      "claim-1"
+    ],
+    "source_refs": [
+      "source-b"
+    ],
+    "okf_version": "0.2",
+    "version": "1.0.0",
+    "rights_status": "verified"
+  },
+  "okf_export": {
+    "schema_version": "1.0.0",
+    "format": "OKF+JSON-LD",
+    "okf_version": "0.2",
+    "jsonld_version": "1.1",
+    "digest": "6666666666666666666666666666666666666666666666666666666666666666",
+    "hash_algorithm": "SHA-256",
+    "entries": [
+      {
+        "path": "concepts/entry.md",
+        "digest": "7777777777777777777777777777777777777777777777777777777777777777",
+        "rights_status": "verified"
+      }
+    ]
+  },
+  "evidence_bundle": {
+    "schema_version": "1.0.0",
+    "id": "bundle-1",
+    "manifest_digest": "8888888888888888888888888888888888888888888888888888888888888888",
+    "hash_algorithm": "SHA-256",
+    "artifact_digests": [
+      "9999999999999999999999999999999999999999999999999999999999999999"
+    ],
+    "merkle_algorithm": "RFC9162-SHA256",
+    "root": "64dd3e84ada4e941690e2b04bc26571bade0e25f4479a2656bf822d001386022",
+    "verification": "not-run"
+  },
+  "correction_event": {
+    "schema_version": "1.0.0",
+    "id": "correction-1",
+    "kind": "source-retracted",
+    "subjects": [
+      "source-b"
+    ],
+    "evidence_refs": [
+      "fixture://notice"
+    ],
+    "affected_assets": [
+      "asset-1"
+    ],
+    "affected_claims": [
+      "claim-1"
+    ],
+    "propagation": "queued",
+    "detected_at": "2026-11-12T16:30:00Z",
+    "provenance_ref": "fixture://prov"
+  },
+  "answer_receipt": {
+    "schema_version": "1.0.0",
+    "id": "answer-1",
+    "answer_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "hash_algorithm": "SHA-256",
+    "retrieval_root": "64dd3e84ada4e941690e2b04bc26571bade0e25f4479a2656bf822d001386022",
+    "merkle_algorithm": "RFC9162-SHA256",
+    "citation_proof_refs": [
+      "proof-1"
+    ],
+    "source_refs": [
+      "source-b"
+    ],
+    "claim_refs": [
+      "claim-1"
+    ],
+    "created_at": "2026-11-12T16:30:00Z",
+    "limitations": [
+      "Receipt does not establish answer truth."
+    ]
+  },
+  "citation_integrity_sweep": {
+    "schema_version": "1.0.0",
+    "id": "sweep-1",
+    "references_checked": 1,
+    "records": [
+      {
+        "schema_version": "1.0.0",
+        "work_uri": "https://doi.org/10.0000/example",
+        "update_type": "expression-of-concern",
+        "source": "fixture://editorial",
+        "checked_at": "2026-11-12T16:30:00Z",
+        "evidence_refs": [
+          "fixture://notice"
+        ],
+        "resolution": "flag-for-review"
+      }
+    ],
+    "sources_checked": [
+      "fixture://editorial-source"
+    ],
+    "unresolved": 0,
+    "disagreements": 0,
+    "result": "flags-found"
+  }
+}

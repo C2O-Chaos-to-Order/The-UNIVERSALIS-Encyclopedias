@@ -1,7 +1,7 @@
 # The UNIVERSALIS Encyclopedias
 
 **Visibility:** Public UNIVERSALIS repository  
-**Repository status:** Initialized with README only; no encyclopedia corpus is present  
+**Repository status:** Initialized destination with a portable evidence-contract foundation; no encyclopedia corpus is present  
 **Scope status:** Proposed public destination; pending review and acceptance  
 **Version:** 0.0.0 (identity/bootstrap)
 
@@ -30,3 +30,13 @@ No automatic synchronization from private research or encyclopedia sources is pe
 Before content is added, define collection structure, entry schema, canonical Markdown format, edition/version policy, source register, rights review, editorial review, and crosswalk to the public ontology. Until those contracts exist, this repository remains an initialized destination only.
 
 **Bootstrap note:** This first commit establishes public repository identity and its proposed scope. It does not publish encyclopedia content or certify any claim.
+
+
+## Open encyclopedia evidence toolchain
+
+- [UNIVERSALIS encyclopedia architecture](https://github.com/C2O-Chaos-to-Order/The-UNIVERSALIS-Encyclopedias/blob/implementation/repository-foundation-2026-11-12/ENCYCLOPEDIA_TOOLCHAIN_ARCHITECTURE.md)
+- [Portable evidence contract schema](https://github.com/C2O-Chaos-to-Order/The-UNIVERSALIS-Encyclopedias/blob/implementation/repository-foundation-2026-11-12/schemas/encyclopedia/encyclopedia-evidence-contracts.v1.schema.json)
+- [Synthetic contract fixtures](https://github.com/C2O-Chaos-to-Order/The-UNIVERSALIS-Encyclopedias/blob/implementation/repository-foundation-2026-11-12/examples/encyclopedias/encyclopedia-evidence-contracts.v1.json)
+- [Validation and CI evidence](https://github.com/C2O-Chaos-to-Order/The-UNIVERSALIS-Encyclopedias/blob/implementation/repository-foundation-2026-11-12/ENCYCLOPEDIA_TOOLCHAIN_VALIDATION.md)
+
+These are portable contracts and synthetic examples, not a published encyclopedia corpus or deployed compiler. No C2O-private corpus or authority information is included.
