@@ -84,3 +84,15 @@ Treat every third-party name in that register as a proposed candidate/reference 
 ## Master toolchain coverage register — 2026-11-12
 
 The current public inventory for the original four toolchain documents plus the Intelligence Capabilities source is maintained in the UNIVERSALIS research register: https://github.com/C2O-Chaos-to-Order/Research-for-the-UNIVERSALIS-Ecosystem/blob/implementation/repository-foundation-2026-11-12/TOOLCHAIN_COVERAGE_REGISTER.md. It distinguishes documentation, basic contracts, passing CI, and actual integrations. This public register contains no links to C2O-private owner repositories or policy values.
+
+
+## Encyclopedia toolchain — tenth owner-supplied source — 2026-11-12
+
+- [Open UNIVERSALIS encyclopedia architecture](https://github.com/C2O-Chaos-to-Order/The-UNIVERSALIS-Encyclopedias/blob/implementation/repository-foundation-2026-11-12/ENCYCLOPEDIA_TOOLCHAIN_ARCHITECTURE.md)
+- [Portable evidence contracts](https://github.com/C2O-Chaos-to-Order/The-UNIVERSALIS-Encyclopedias/blob/implementation/repository-foundation-2026-11-12/schemas/encyclopedia/encyclopedia-evidence-contracts.v1.schema.json)
+- [Synthetic evidence fixtures](https://github.com/C2O-Chaos-to-Order/The-UNIVERSALIS-Encyclopedias/blob/implementation/repository-foundation-2026-11-12/examples/encyclopedias/encyclopedia-evidence-contracts.v1.json)
+- [Validation evidence](https://github.com/C2O-Chaos-to-Order/The-UNIVERSALIS-Encyclopedias/blob/implementation/repository-foundation-2026-11-12/ENCYCLOPEDIA_TOOLCHAIN_VALIDATION.md)
+
+Candidate inventory covers Alexandria, WikiNow, MeMex, Stoa, Flexible GraphRAG, docsiq, llm-wiki-compiler, CiteGuard, retractionwatch-mcp, Panda Research Tools, verifiable-memory, DocImprint, answerproof, ember-custody, mcai-knowledge, cite-citadel and llm-wiki-plugin. All remain candidates pending exact source/license/release/security/compatibility and data-flow checks. No corpus/compiler/source connector is claimed deployed.
+
+See the [UNIVERSALIS ten-source master toolchain coverage register](https://github.com/C2O-Chaos-to-Order/Research-for-the-UNIVERSALIS-Ecosystem/blob/implementation/repository-foundation-2026-11-12/TOOLCHAIN_COVERAGE_REGISTER.md). The public register contains only public contracts and synthetic examples, not C2O-private ontology or corpus material.
