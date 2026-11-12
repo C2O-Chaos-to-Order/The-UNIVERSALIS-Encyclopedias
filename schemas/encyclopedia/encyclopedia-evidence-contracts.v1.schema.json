@@ -1,0 +1,836 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:c2o-universalis:encyclopedia-evidence:1.0.0",
+  "title": "Portable Encyclopedia Evidence Contracts",
+  "description": "Portable source ingestion, citation proof, editorial status, quality and OKF/JSON-LD contracts. No C2O-private corpora or authority data.",
+  "$defs": {
+    "sourceRecord": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uri": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": [
+            "paper",
+            "article",
+            "book",
+            "dataset",
+            "standard",
+            "web-page",
+            "repository",
+            "other"
+          ]
+        },
+        "media_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "hash_algorithm": {
+          "enum": [
+            "SHA-256",
+            "SHA3-256"
+          ]
+        },
+        "rights_status": {
+          "enum": [
+            "verified",
+            "claimed",
+            "unknown",
+            "restricted",
+            "permission-required",
+            "public-domain-verified"
+          ]
+        },
+        "privacy_classification": {
+          "enum": [
+            "public",
+            "controlled",
+            "confidential",
+            "secret"
+          ]
+        },
+        "authenticity": {
+          "enum": [
+            "not-assessed",
+            "unverified",
+            "corroborated",
+            "verified",
+            "disputed",
+            "withdrawn"
+          ]
+        },
+        "status": {
+          "enum": [
+            "active",
+            "superseded",
+            "retracted",
+            "withdrawn",
+            "archived",
+            "unknown"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "uri",
+        "title",
+        "kind",
+        "media_type",
+        "retrieved_at",
+        "digest",
+        "hash_algorithm",
+        "rights_status",
+        "privacy_classification",
+        "authenticity",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "ingestionManifest": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "producer_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pipeline_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "staged",
+            "validated",
+            "quarantined",
+            "accepted",
+            "rejected",
+            "withdrawn"
+          ]
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "hash_algorithm": {
+          "enum": [
+            "SHA-256",
+            "SHA3-256"
+          ]
+        },
+        "documents": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "source_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uri": {
+                "type": "string",
+                "minLength": 1
+              },
+              "byte_length": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "digest": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "hash_algorithm": {
+                "enum": [
+                  "SHA-256",
+                  "SHA3-256"
+                ]
+              },
+              "rights_status": {
+                "enum": [
+                  "verified",
+                  "claimed",
+                  "unknown",
+                  "restricted",
+                  "permission-required",
+                  "public-domain-verified"
+                ]
+              },
+              "privacy_classification": {
+                "enum": [
+                  "public",
+                  "controlled",
+                  "confidential",
+                  "secret"
+                ]
+              },
+              "chunks": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "sequence": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "start": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "end": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "digest": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "sequence",
+                    "start",
+                    "end",
+                    "digest"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "source_id",
+              "uri",
+              "byte_length",
+              "digest",
+              "hash_algorithm",
+              "rights_status",
+              "privacy_classification",
+              "chunks"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "schema_version",
+        "id",
+        "version",
+        "created_at",
+        "producer_ref",
+        "status",
+        "digest",
+        "hash_algorithm",
+        "documents"
+      ],
+      "additionalProperties": false
+    },
+    "merkleProof": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": "1.0.0"
+        },
+        "algorithm": {
+          "const": "RFC9162-SHA256"
+        },
+        "canonicalization": {
+          "const": "RFC8785"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "payload_digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "leaf_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "root_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "tree_size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "leaf_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "path": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "version",
+        "algorithm",
+        "canonicalization",
+        "payload",
+        "payload_digest",
+        "leaf_hash",
+        "root_hash",
+        "tree_size",
+        "leaf_index",
+        "path",
+        "timestamp"
+      ],
+      "additionalProperties": false
+    },
+    "citationProof": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "fragment_digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "proof": {
+          "$ref": "#/$defs/merkleProof"
+        },
+        "truth_status": {
+          "const": "not-established-by-inclusion-proof"
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "schema_version",
+        "id",
+        "source_digest",
+        "fragment_digest",
+        "locator",
+        "proof",
+        "truth_status",
+        "limitations"
+      ],
+      "additionalProperties": false
+    },
+    "coverageReport": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "total": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "verified": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "uncited": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "unverified": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "broken": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "coverage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "threshold": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "result": {
+          "enum": [
+            "pass",
+            "fail",
+            "review-required"
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "total",
+        "verified",
+        "uncited",
+        "unverified",
+        "broken",
+        "coverage",
+        "threshold",
+        "result"
+      ],
+      "additionalProperties": false
+    },
+    "editorialStatus": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "work_uri": {
+          "type": "string",
+          "minLength": 1
+        },
+        "update_type": {
+          "enum": [
+            "retraction",
+            "withdrawn",
+            "expression-of-concern",
+            "removal",
+            "correction",
+            "no-update-found",
+            "unknown"
+          ]
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "checked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "resolution": {
+          "enum": [
+            "flag-for-review",
+            "status-found",
+            "no-flag-found",
+            "unknown",
+            "source-disagreement"
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "work_uri",
+        "update_type",
+        "source",
+        "checked_at",
+        "evidence_refs",
+        "resolution"
+      ],
+      "additionalProperties": false
+    },
+    "knowledgeAsset": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "body_markdown": {
+          "type": "string"
+        },
+        "claim_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "okf_version": {
+          "const": "0.2"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rights_status": {
+          "enum": [
+            "verified",
+            "claimed",
+            "unknown",
+            "restricted",
+            "permission-required",
+            "public-domain-verified"
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "id",
+        "title",
+        "body_markdown",
+        "claim_refs",
+        "source_refs",
+        "okf_version",
+        "version",
+        "rights_status"
+      ],
+      "additionalProperties": false
+    },
+    "okfExport": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "format": {
+          "const": "OKF+JSON-LD"
+        },
+        "okf_version": {
+          "const": "0.2"
+        },
+        "jsonld_version": {
+          "const": "1.1"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "hash_algorithm": {
+          "enum": [
+            "SHA-256",
+            "SHA3-256"
+          ]
+        },
+        "entries": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "digest": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "rights_status": {
+                "enum": [
+                  "verified",
+                  "claimed",
+                  "unknown",
+                  "restricted",
+                  "permission-required",
+                  "public-domain-verified"
+                ]
+              }
+            },
+            "required": [
+              "path",
+              "digest",
+              "rights_status"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "schema_version",
+        "format",
+        "okf_version",
+        "jsonld_version",
+        "digest",
+        "hash_algorithm",
+        "entries"
+      ],
+      "additionalProperties": false
+    },
+    "evidenceBundle": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "manifest_digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "hash_algorithm": {
+          "enum": [
+            "SHA-256",
+            "SHA3-256"
+          ]
+        },
+        "artifact_digests": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "merkle_algorithm": {
+          "const": "RFC9162-SHA256"
+        },
+        "root": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "verification": {
+          "enum": [
+            "not-run",
+            "valid",
+            "invalid",
+            "incomplete"
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "id",
+        "manifest_digest",
+        "hash_algorithm",
+        "artifact_digests",
+        "merkle_algorithm",
+        "root",
+        "verification"
+      ],
+      "additionalProperties": false
+    },
+    "correctionEvent": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": [
+            "source-retracted",
+            "source-corrected",
+            "source-withdrawn",
+            "claim-corrected",
+            "claim-superseded",
+            "citation-invalidated",
+            "rights-changed",
+            "freshness-expired"
+          ]
+        },
+        "subjects": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "affected_assets": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "affected_claims": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "propagation": {
+          "enum": [
+            "not-started",
+            "queued",
+            "in-progress",
+            "completed",
+            "partially-completed",
+            "blocked"
+          ]
+        },
+        "detected_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "provenance_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "schema_version",
+        "id",
+        "kind",
+        "subjects",
+        "evidence_refs",
+        "affected_assets",
+        "affected_claims",
+        "propagation",
+        "detected_at",
+        "provenance_ref"
+      ],
+      "additionalProperties": false
+    },
+    "answerReceipt": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "answer_digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "hash_algorithm": {
+          "enum": [
+            "SHA-256",
+            "SHA3-256"
+          ]
+        },
+        "retrieval_root": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "merkle_algorithm": {
+          "const": "RFC9162-SHA256"
+        },
+        "citation_proof_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "claim_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "schema_version",
+        "id",
+        "answer_digest",
+        "hash_algorithm",
+        "retrieval_root",
+        "merkle_algorithm",
+        "citation_proof_refs",
+        "source_refs",
+        "claim_refs",
+        "created_at",
+        "limitations"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
