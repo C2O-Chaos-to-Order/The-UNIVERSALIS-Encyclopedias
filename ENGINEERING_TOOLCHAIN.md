@@ -96,3 +96,10 @@ The current public inventory for the original four toolchain documents plus the 
 Candidate inventory covers Alexandria, WikiNow, MeMex, Stoa, Flexible GraphRAG, docsiq, llm-wiki-compiler, CiteGuard, retractionwatch-mcp, Panda Research Tools, verifiable-memory, DocImprint, answerproof, ember-custody, mcai-knowledge, cite-citadel and llm-wiki-plugin. All remain candidates pending exact source/license/release/security/compatibility and data-flow checks. No corpus/compiler/source connector is claimed deployed.
 
 See the [UNIVERSALIS ten-source master toolchain coverage register](https://github.com/C2O-Chaos-to-Order/Research-for-the-UNIVERSALIS-Ecosystem/blob/implementation/repository-foundation-2026-11-12/TOOLCHAIN_COVERAGE_REGISTER.md). The public register contains only public contracts and synthetic examples, not C2O-private ontology or corpus material.
+
+
+## Security and Cybersecurity — eleventh owner-supplied source — 2026-11-12
+
+Canonical public architecture: [UNIVERSALIS Security and Cybersecurity](https://github.com/C2O-Chaos-to-Order/The-UNIVERSALIS-Ecosystem/blob/implementation/repository-foundation-2026-11-12/SECURITY_CYBERSECURITY_ARCHITECTURE.md). The public security contract, synthetic fixtures and validation evidence are linked from that architecture. The [UNIVERSALIS eleven-source master toolchain register](https://github.com/C2O-Chaos-to-Order/Research-for-the-UNIVERSALIS-Ecosystem/blob/implementation/repository-foundation-2026-11-12/TOOLCHAIN_COVERAGE_REGISTER.md) preserves candidate provenance, verification caveats and integration limits.
+
+Public repositories contain only portable contracts and synthetic examples: no C2O-private policies, keys, incident data, authority records or target inventories. External security tools remain candidates until source, license, release, data flow, platform and enforcement behavior are reviewed. No security product or offensive assessment system is claimed integrated.
