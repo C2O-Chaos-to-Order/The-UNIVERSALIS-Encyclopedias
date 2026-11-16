@@ -1,7 +1,7 @@
 # The UNIVERSALIS Encyclopedias
 
 **Visibility:** Public UNIVERSALIS repository  
-**Repository status:** Initialized destination with a portable evidence-contract foundation; no encyclopedia corpus is present  
+**Repository status:** Initialized destination with a portable evidence-contract foundation; no encyclopedia corpus is present
 **Scope status:** Proposed public destination; pending review and acceptance  
 **Version:** 0.0.0 (identity/bootstrap)
 

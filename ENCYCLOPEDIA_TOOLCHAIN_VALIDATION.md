@@ -1,7 +1,7 @@
 # Encyclopedia Toolchain Validation Record — UNIVERSALIS
 
-Branch: `implementation/repository-foundation-2026-11-12`  
-Contract version: 1.0.0  
+Branch: `implementation/repository-foundation-2026-11-12`
+Contract version: 1.0.0
 Status: **Passed** — portable evidence contracts, semantic checks and RFC 9162 inclusion proof.
 
 ## Positive contract coverage

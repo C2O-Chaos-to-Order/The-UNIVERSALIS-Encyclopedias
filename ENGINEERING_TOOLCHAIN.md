@@ -1,8 +1,8 @@
 # Engineering Toolchain and Initial Build Plan
 
-**Repository:** `C2O-Chaos-to-Order/The-UNIVERSALIS-Encyclopedias`  
-**Responsibility:** UNIVERSALIS Encyclopedias  
-**Status:** Initial executable foundation in this branch; specialized candidates remain proposed pending verification.  
+**Repository:** `C2O-Chaos-to-Order/The-UNIVERSALIS-Encyclopedias`
+**Responsibility:** UNIVERSALIS Encyclopedias
+**Status:** Initial executable foundation in this branch; specialized candidates remain proposed pending verification.
 **Boundary:** Open UNIVERSALIS. Do not include C2O-private credentials, policies, authority state, or private operational data.
 
 ## Universal engineering foundation
