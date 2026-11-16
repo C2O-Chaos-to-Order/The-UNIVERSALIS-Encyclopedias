@@ -5,6 +5,8 @@
 **Scope status:** Proposed public destination; pending review and acceptance  
 **Version:** 0.0.0 (identity/bootstrap)
 
+> Rule No. 1 — "Do No Harm. Do No Destruction." Canonical: `foundation/RULE_1.md` in The-UNIVERSALIS-Ecosystem, canonical-text sha256 `b029644d741d99dab4bfcdd0d28f25a03dad67dff0a8032f2b999109f7d31317`.
+
 ## Proposed responsibility
 
 This repository is reserved for public UNIVERSALIS encyclopedia collections and their published editions. It may contain only public-safe, provenance-preserving, rights-cleared material that has passed the applicable source, review, and release gates.
